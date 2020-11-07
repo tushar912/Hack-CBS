@@ -1,4 +1,5 @@
 const functions = require('firebase-functions');
+
 const express = require('express');
 const app = express();
 const cors= require('cors');
@@ -7,13 +8,24 @@ const cron = require("node-cron");
 const scheduleHelper = require('./scheduleHelper')
 const notificationRouter = require('./routes/notification');
 const tokenRouter = require('./routes/token')
+const maptt = require('./maptt')
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 app.use('/',notificationRouter)
 app.use('/token',tokenRouter)
 
-// cron.schedule("*/10 * * * * *", scheduleHelper
-// ); 
+var tt=[]
+tt = maptt('CSE');
+console.log(tt)
 
+// tt.forEach((c)=>{
+//     cron.schedule(`${c.time}**${c.day}`, scheduleHelper('class',c.link)
+// ); 
+// }
+// );
+ 
+setTimeout(function () {
+    cron.schedule("*/60 * * * * *", scheduleHelper('from api','every 10 sec'));
+  }, 1000)
 exports.api = functions.https.onRequest(app);
