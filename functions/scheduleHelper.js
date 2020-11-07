@@ -10,7 +10,7 @@ const message_notification = {
     };
 const payload = {
     message:message_notification,
-    registrationToken:registrationToken
+    registrationToken:registrationToken()
 }
 scheduleHelper = function(){
     axios.post(apiUrl,payload)

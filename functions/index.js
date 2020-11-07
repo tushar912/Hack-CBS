@@ -6,13 +6,14 @@ const bodyParser = require('body-parser');
 const cron = require("node-cron"); 
 const scheduleHelper = require('./scheduleHelper')
 const notificationRouter = require('./routes/notification');
-
+const tokenRouter = require('./routes/token')
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 app.use('/',notificationRouter)
+app.use('/token',tokenRouter)
 
 cron.schedule("*/10 * * * * *", scheduleHelper
-}); 
+); 
 
 exports.api = functions.https.onRequest(app);
