@@ -1,5 +1,5 @@
 const express = require('express');
-const { admin } = require('././config')
+const { admin } = require('../config')
 const notificationRouter = express.Router();
 
 const notification_options = {

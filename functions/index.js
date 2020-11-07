@@ -13,7 +13,7 @@ app.use(cors());
 app.use('/',notificationRouter)
 app.use('/token',tokenRouter)
 
-cron.schedule("*/10 * * * * *", scheduleHelper
-); 
+// cron.schedule("*/10 * * * * *", scheduleHelper
+// ); 
 
 exports.api = functions.https.onRequest(app);

@@ -7,15 +7,16 @@ admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
   databaseURL: "https://sahpathi-14655.firebaseio.com"
 })
-const apiUrl;
+const db =admin.firestore();
+const apiUrl=null;
 
 const registrationToken= function(){
-  db.collection('tokens').get().then(data=>{
+  db.collection('tokens').orderBy('createdAt','desc').get().then(data=>{
     return data[0]
 }).catch(err=>{
     console.log(err)
 })
 };
-module.exports.registrationToken = registrationToken
-module.exports.apiUrl = apiUrl
+module.exports.registrationtoken = registrationToken
+module.exports.apiurl = apiUrl
 module.exports.admin = admin
