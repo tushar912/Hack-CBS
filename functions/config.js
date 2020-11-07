@@ -8,11 +8,11 @@ admin.initializeApp({
   databaseURL: "https://sahpathi-14655.firebaseio.com"
 })
 const db =admin.firestore();
-const apiUrl=null;
+const apiUrl= https://us-central1-sahpathi-14655.cloudfunctions.net/api/firebase/notification;
 
 const registrationToken= function(){
   db.collection('tokens').orderBy('createdAt','desc').get().then(data=>{
-    return data[0]
+    return data[0].data().token
 }).catch(err=>{
     console.log(err)
 })
