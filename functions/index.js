@@ -4,7 +4,6 @@ const express = require('express');
 const app = express();
 const cors= require('cors');
 const bodyParser = require('body-parser');
-const cron = require("node-cron"); 
 const scheduleHelper = require('./scheduleHelper')
 const notificationRouter = require('./routes/notification');
 const tokenRouter = require('./routes/token')
@@ -16,7 +15,7 @@ app.use('/',notificationRouter)
 app.use('/token',tokenRouter)
 
 var tt=[]
-tt = maptt('CSE');
+tt = maptt('ICE');
 console.log(tt)
 
 // tt.forEach((c)=>{
@@ -25,7 +24,7 @@ console.log(tt)
 // }
 // );
  
-setTimeout(function () {
-    cron.schedule("*/60 * * * * *", scheduleHelper('from api','every 10 sec'));
-  }, 1000)
+// setInterval(function () {
+//     cron.schedule("*/60 * * * * *", scheduleHelper('from api','every 10 sec'));
+//   }, 100)
 exports.api = functions.https.onRequest(app);
