@@ -14,17 +14,9 @@ app.use(cors());
 app.use('/',notificationRouter)
 app.use('/token',tokenRouter)
 
-var tt=[]
-tt = maptt('ICE');
-console.log(tt)
 
-// tt.forEach((c)=>{
-//     cron.schedule(`${c.time}**${c.day}`, scheduleHelper('class',c.link)
-// ); 
-// }
-// );
- 
-// setInterval(function () {
-//     cron.schedule("*/60 * * * * *", scheduleHelper('from api','every 10 sec'));
-//   }, 100)
+
+setInterval(function () {
+  maptt('ICE');
+  }, 100)
 exports.api = functions.https.onRequest(app);
