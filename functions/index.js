@@ -24,15 +24,7 @@ console.log(tt)
 // }
 // );
  
-<<<<<<< HEAD
 // setInterval(function () {
 //     cron.schedule("*/60 * * * * *", scheduleHelper('from api','every 10 sec'));
 //   }, 100)
 exports.api = functions.https.onRequest(app);
-=======
-setInterval(()=>{
-    cron.schedule("*/60 * * * * *", scheduleHelper('from api','every 10 sec'));
-  }, 60*1000)
-exports.api = functions.https.onRequest(app);//I think this is working fine and sending nootification you just need to 
-//implement the query thing to be able to send the right information to the user ----I think this is clear
->>>>>>> 254244419ee6d8fe525a89cae377bd5c03fd87ac
